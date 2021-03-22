@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pheme
+  labels:
+    app: pheme
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pheme 
+  template:
+    metadata:
+      labels:
+        app: pheme 
+    spec:
+      containers:
+      - name: pheme
+        image: nfinstana/pheme
+        imagePullPolicy: Always
+        ports:
+        - name: status
+          containerPort: 8008
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: status
+
