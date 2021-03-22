@@ -40,3 +40,4 @@ spec:
             port: sidecar
       serviceAccount: instana-agent
       serviceAccountName: instana-agent
+      dnsPolicy: ClusterFirst
