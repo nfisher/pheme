@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pheme
+  namespace: instana-agent
   labels:
     app: pheme
 spec:
@@ -37,3 +38,5 @@ spec:
           httpGet:
             path: /healthz
             port: sidecar
+      serviceAccount: instana-agent
+      serviceAccountName: instana-agent
